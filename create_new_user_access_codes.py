@@ -16,7 +16,7 @@ seam = Seam(api_key=SEAM_API_KEY)
 pacific = pytz.timezone("America/Los_Angeles")
 
 # read csv file
-df = pd.read_csv("class-attendees-11868.csv")
+df = pd.read_csv("uploads/class-attendees-11868.csv")
 
 # get yale lock device id
 devices = seam.devices.list()
