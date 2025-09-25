@@ -1,4 +1,4 @@
 .env
 .DS_Store
-uploads/
+csv_files/
 create_secret.py

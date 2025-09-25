@@ -73,7 +73,7 @@ def main():
     html_template = load_html_template("email_templates/class_email_template.html")
 
     # Load the CSV file
-    df = pd.read_csv("uploads/users_created.csv", dtype={"Access Code": str})
+    df = pd.read_csv("csv_files/users_created.csv", dtype={"Access Code": str})
 
     current_access_token = get_access_token(TENANT_ID, CLIENT_ID, CLIENT_SECRET)
     
