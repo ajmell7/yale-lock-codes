@@ -1,3 +1,5 @@
 .env
 class-attendees-11868.csv
+class-attendees-short.csv
 users_created.csv
+create_secret.py
