@@ -1,5 +1,5 @@
 .env
-class-attendees-11868.csv
-class-attendees-short.csv
-users_created.csv
+.DS_Store
+csv_files/
 create_secret.py
+config.json
