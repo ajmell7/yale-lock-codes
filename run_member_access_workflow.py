@@ -1,4 +1,6 @@
 import subprocess
+import os
+
 from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 
@@ -27,6 +29,14 @@ def main():
         print("Running outlook_templates.py...")
         subprocess.run(["python", "outlook_templates.py"], check=True)
         print("Finished sending emails.")
+
+        # Step 4: Delete the users_created.csv file
+        users_created_file = "csv_files/users_created.csv"
+        if os.path.exists(users_created_file):
+            os.remove(users_created_file)
+            print(f"Deleted file: {users_created_file}")
+        else:
+            print(f"File not found: {users_created_file}")
 
     except subprocess.CalledProcessError as e:
         print(f"An error occurred while running a script: {e}")

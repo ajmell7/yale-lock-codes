@@ -38,10 +38,10 @@ def create_new_users(input_file):
             user_name = df["First Name"][i] + " " + df["Last Name"][i]
             user_email = df["Email"][i]
             class_start_date_str = df["Class Start"][i]
-            access_start_date = datetime.strptime(class_start_date_str, "%m/%d/%Y")
+            access_start_date = datetime.strptime(class_start_date_str, "%m/%d/%y")
             access_start_date = pacific.localize(access_start_date) # Pacific Time zone
             class_end_date_str = df["Class End"][i]
-            class_end_date = datetime.strptime(class_end_date_str, "%m/%d/%Y")
+            class_end_date = datetime.strptime(class_end_date_str, "%m/%d/%y")
             class_end_date = pacific.localize(class_end_date)  # Pacific Time zone
             access_end_date = class_end_date + timedelta(days=7)
             user_code = generate_user_code()
