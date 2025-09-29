@@ -36,6 +36,7 @@ def create_new_users(input_file):
         users_created = []
         for i in range(len(df)):
             user_name = df["First Name"][i] + " " + df["Last Name"][i]
+            first_name = df["First Name"][i]
             user_email = df["Email"][i]
             class_start_date_str = df["Class Start"][i]
             class_end_date_str = df["Class End"][i]
@@ -75,12 +76,12 @@ def create_new_users(input_file):
                 starts_at=access_start_date.isoformat(),
                 ends_at=access_end_date.isoformat()
             )
-            users_created.append([user_name, user_email, user_code, access_start_date, access_end_date])
+            users_created.append([user_name, first_name, user_email, user_code, access_start_date, access_end_date])
 
             print(f"Created access code {access_code.code} for user {user_name}.")
 
         # Save the created users to a new CSV file
-        users_df = pd.DataFrame(users_created, columns=["Name", "Email", "Access Code", "Access Start Date", "Access End Date"])
+        users_df = pd.DataFrame(users_created, columns=["Name", "First Name", "Email", "Access Code", "Access Start Date", "Access End Date"])
         users_df.to_csv("csv_files/users_created.csv", index=False)
 
 def main():

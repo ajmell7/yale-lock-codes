@@ -78,7 +78,8 @@ def main():
     current_access_token = get_access_token(TENANT_ID, CLIENT_ID, CLIENT_SECRET)
     
     for _, row in df.iterrows():
-        user_name = row["Name"]
+        #user_name = row["Name"]
+        first_name = row["First Name"]
         user_email = row["Email"]
         access_code = row["Access Code"]
         # Parse and format the dates
@@ -86,15 +87,15 @@ def main():
         end_date = datetime.fromisoformat(row["Access End Date"]).strftime("%m/%d/%y")
         # Generate the email body
         email_body = generate_email_body(
-            html_template, user_name, access_code, start_date, end_date
+            html_template, first_name, access_code, start_date, end_date
         )
     
         send_email_via_graph_api(
             access_token=current_access_token,
-            user_name=user_name,
+            user_name=first_name,
             subject="TTP Door Access Code and Policies",
             body=email_body,
-            to_email=user_email,
+            to_email= "ajmell7@gmail.com",  #user_email,
             from_email="hello@thirdplacepottery.com"
         )
 
