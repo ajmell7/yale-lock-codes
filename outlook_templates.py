@@ -95,7 +95,7 @@ def main():
             user_name=first_name,
             subject="TTP Door Access Code and Policies",
             body=email_body,
-            to_email= "ajmell7@gmail.com",  #user_email,
+            to_email= user_email,
             from_email="hello@thirdplacepottery.com"
         )
 
