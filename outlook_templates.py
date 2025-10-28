@@ -2,7 +2,8 @@ import requests
 import os
 import pandas as pd
 
-from datetime import datetime
+from datetime import datetime, timedelta
+
 from dotenv import load_dotenv
 
 # load environment variables
@@ -84,7 +85,9 @@ def main():
         access_code = row["Access Code"]
         # Parse and format the dates
         start_date = datetime.fromisoformat(row["Access Start Date"]).strftime("%m/%d/%y")
-        end_date = datetime.fromisoformat(row["Access End Date"]).strftime("%m/%d/%y")
+        # subtract two hours to account for daylight savings time issue where the end date was ending up as 1 day later than expected 
+        end_date = datetime.fromisoformat(row["Access End Date"])-timedelta(hours=2)
+        end_date = end_date.strftime("%m/%d/%y")
         # Generate the email body
         email_body = generate_email_body(
             html_template, first_name, access_code, start_date, end_date
